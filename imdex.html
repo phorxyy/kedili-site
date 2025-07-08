@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kedi Sitesi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f0f0f0;
+    }
+    #cat {
+      position: absolute;
+      width: 100px;
+      transition: top 0.3s ease, left 0.3s ease;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tıklayınca Kedi Çıksın! 🐱</h1>
+  <p>Ekrana her tıkladığında bir kedi belirecek.</p>
+
+  <script>
+    document.addEventListener('click', function(event) {
+      const cat = document.createElement('img');
+      cat.src = 'https://cdn-icons-png.flaticon.com/512/616/616408.png'; // Kedi ikonu URL'si
+      cat.id = 'cat';
+      cat.style.top = event.clientY + 'px';
+      cat.style.left = event.clientX + 'px';
+      document.body.appendChild(cat);
+
+      // 2 saniye sonra kediyi kaldır
+      setTimeout(() => {
+        cat.remove();
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
